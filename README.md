@@ -4,4 +4,6 @@ Aplicación web estática en HTML5, CSS y JavaScript (`<canvas>`) para generar e
 
 1. **F12M - SPAT**: Diagrama de puesta a tierra con configuración de pozos (`PT01`–`PT06`), telurómetro y mediciones de resistencia.
 2. **Esquema 1 - Perímetro**: Plano rectangular proporcional con puerta de acceso, cotas exteriores en metros y coordenadas inclinadas en las 4 esquinas (`A`, `B`, `C`, `D`).
-3. **Esquema 2 - Torre**: Elevación proporcional con los 8 modelos de estructura en formato PNG sin deformación.
+3. **Esquema 2 - Torre**: Elevación con los 8 modelos de estructura y sus cotas específicas.
+
+> **Nota:** Conserva la carpeta `img/` de tu repositorio con las 8 imágenes PNG (`1_torre_arbol.png` a `8_torre_arriostrada_edificio.png`).
