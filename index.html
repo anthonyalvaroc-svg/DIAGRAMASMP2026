@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generador de Esquemas Técnicos (SPAT / Perímetro / Torre)</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=4" />
 </head>
 <body>
   <div class="container">
@@ -32,6 +32,9 @@
       </button>
     </nav>
 
+    <!-- =====================================================
+         PESTAÑA 1: F12M - SPAT
+         ===================================================== -->
     <section id="tabSpat" class="tab-panel active" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -81,10 +84,13 @@
       </div>
 
       <div class="canvas-wrap">
-        <canvas id="canvasSpat" width="1020" height="1040"></canvas>
+        <canvas id="canvasSpat" width="1180" height="1220"></canvas>
       </div>
     </section>
 
+    <!-- =====================================================
+         PESTAÑA 2: ESQUEMA 1 - PERÍMETRO
+         ===================================================== -->
     <section id="tabPerimetro" class="tab-panel" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -141,6 +147,9 @@
       </div>
     </section>
 
+    <!-- =====================================================
+         PESTAÑA 3: ESQUEMA 2 - TORRE
+         ===================================================== -->
     <section id="tabTorre" class="tab-panel" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -213,7 +222,7 @@
         </div>
 
         <div class="field">
-          <label for="customTorreImg">Reemplazar imagen de este modelo (opcional)</label>
+          <label for="customTorreImg">Imagen base de este modelo (opcional)</label>
           <input type="file" id="customTorreImg" accept="image/*" />
         </div>
       </div>
@@ -226,11 +235,11 @@
       </div>
 
       <div class="canvas-wrap">
-        <canvas id="canvasTorre" width="900" height="1220"></canvas>
+        <canvas id="canvasTorre" width="900" height="1200"></canvas>
       </div>
     </section>
   </div>
 
-  <script src="app.js"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
