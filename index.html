@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generador de Esquemas Técnicos (SPAT / Perímetro / Torre)</title>
-  <link rel="stylesheet" href="styles.css?v=6" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <div class="container">
@@ -13,6 +13,7 @@
       <p class="sub">Completa los datos técnicos y descarga los planos en formato PNG.</p>
     </header>
 
+    <!-- Barra superior compartida -->
     <section class="shared-site-bar">
       <div class="field shared-field">
         <label for="sitio">CÓDIGO / NOMBRE DEL SITIO</label>
@@ -20,6 +21,7 @@
       </div>
     </section>
 
+    <!-- Navegación por pestañas -->
     <nav class="tabs" role="tablist">
       <button type="button" class="tab-btn active" data-tab="tabSpat" role="tab" aria-selected="true">
         1. F12M - SPAT
@@ -32,6 +34,7 @@
       </button>
     </nav>
 
+    <!-- PESTAÑA 1: F12M - SPAT -->
     <section id="tabSpat" class="tab-panel active" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -81,10 +84,11 @@
       </div>
 
       <div class="canvas-wrap">
-        <canvas id="canvasSpat" width="1020" height="1060"></canvas>
+        <canvas id="canvasSpat" width="980" height="1060"></canvas>
       </div>
     </section>
 
+    <!-- PESTAÑA 2: ESQUEMA 1 - PERÍMETRO -->
     <section id="tabPerimetro" class="tab-panel" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -141,6 +145,7 @@
       </div>
     </section>
 
+    <!-- PESTAÑA 3: ESQUEMA 2 - TORRE -->
     <section id="tabTorre" class="tab-panel" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -231,6 +236,6 @@
     </section>
   </div>
 
-  <script src="app.js?v=6"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
