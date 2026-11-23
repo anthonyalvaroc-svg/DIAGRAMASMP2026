@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Generador de Esquemas Técnicos (SPAT / Perímetro / Torre)</title>
-  <link rel="stylesheet" href="styles.css?v=8" />
+  <link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
   <div class="container">
@@ -34,9 +34,7 @@
       </button>
     </nav>
 
-    <!-- =====================================================
-         PESTAÑA 1: F12M - SPAT
-         ===================================================== -->
+    <!-- PESTAÑA 1: F12M - SPAT -->
     <section id="tabSpat" class="tab-panel active" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -86,13 +84,11 @@
       </div>
 
       <div class="canvas-wrap">
-        <canvas id="canvasSpat" width="1020" height="1060"></canvas>
+        <canvas id="canvasSpat" width="980" height="1060"></canvas>
       </div>
     </section>
 
-    <!-- =====================================================
-         PESTAÑA 2: ESQUEMA 1 - PERÍMETRO
-         ===================================================== -->
+    <!-- PESTAÑA 2: ESQUEMA 1 - PERÍMETRO -->
     <section id="tabPerimetro" class="tab-panel" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -149,9 +145,7 @@
       </div>
     </section>
 
-    <!-- =====================================================
-         PESTAÑA 3: ESQUEMA 2 - TORRE (8 MODELOS CON IMAGEN FIJA)
-         ===================================================== -->
+    <!-- PESTAÑA 3: ESQUEMA 2 - TORRE -->
     <section id="tabTorre" class="tab-panel" role="tabpanel">
       <div class="grid-form">
         <div class="field">
@@ -178,7 +172,6 @@
           <input type="number" id="alturaBase" step="0.01" min="0" value="1.20" />
         </div>
 
-        <!-- Campos para Autosoportada (Normal / Encima) -->
         <div class="field grp-roldana-std" hidden>
           <label for="roldanaSup">Altura Roldana Superior (m)</label>
           <input type="number" id="roldanaSup" step="0.01" min="0" value="28.50" />
@@ -189,7 +182,6 @@
           <input type="number" id="roldanaInf" step="0.01" min="0" value="27.30" />
         </div>
 
-        <!-- Campos para Monopolo (3 cuerpos de roldanas) -->
         <div class="field grp-monopolo" hidden>
           <label for="rol1Sup">Altura Roldana 1 Superior (m)</label>
           <input type="number" id="rol1Sup" step="0.01" min="0" value="29.00" />
@@ -215,13 +207,11 @@
           <input type="number" id="rol3Inf" step="0.01" min="0" value="21.80" />
         </div>
 
-        <!-- Campo para Escalera Gato -->
         <div class="field grp-escalera" hidden>
           <label for="alturaEscaleraGato">Altura Escalera Gato (m)</label>
           <input type="number" id="alturaEscaleraGato" step="0.01" min="0" value="2.40" />
         </div>
 
-        <!-- Campo para Edificio sin parapeto -->
         <div class="field grp-edificio" hidden>
           <label for="alturaEdificio">Altura Edificio sin Parapeto (m)</label>
           <input type="number" id="alturaEdificio" step="0.01" min="0" value="12.00" />
@@ -246,6 +236,6 @@
     </section>
   </div>
 
-  <script src="app.js?v=8"></script>
+  <script src="app.js?v=5"></script>
 </body>
 </html>
