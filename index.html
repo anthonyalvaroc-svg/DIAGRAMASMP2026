@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generador de Esquemas Técnicos (SPAT / Perímetro / Torre)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="container">
+    <header class="app-header">
+      <h1>Generador de Esquemas Técnicos (SPAT / Perímetro / Torre)</h1>
+      <p class="sub">Completa los datos técnicos y descarga los planos en formato PNG.</p>
+    </header>
+
+    <section class="shared-site-bar">
+      <div class="field shared-field">
+        <label for="sitio">CÓDIGO / NOMBRE DEL SITIO</label>
+        <input type="text" id="sitio" value="LI0123_SITIO" placeholder="Ej. LI0123_SITIO" />
+      </div>
+    </section>
+
+    <nav class="tabs" role="tablist">
+      <button type="button" class="tab-btn active" data-tab="tabSpat" role="tab" aria-selected="true">
+        1. F12M - SPAT
+      </button>
+      <button type="button" class="tab-btn" data-tab="tabPerimetro" role="tab" aria-selected="false">
+        2. Esquema 1 - Perímetro
+      </button>
+      <button type="button" class="tab-btn" data-tab="tabTorre" role="tab" aria-selected="false">
+        3. Esquema 2 - Torre
+      </button>
+    </nav>
+
+    <section id="tabSpat" class="tab-panel active" role="tabpanel">
+      <div class="grid-form">
+        <div class="field">
+          <label for="spatTipoTorre">Símbolo de Torre</label>
+          <select id="spatTipoTorre">
+            <option value="auto_cuadrado">Autosoportada (Cuadrada)</option>
+            <option value="auto_triangulo">Autosoportada (Triangular)</option>
+            <option value="monopolo">Monopolo / Árbol</option>
+            <option value="ventada">Ventada</option>
+            <option value="arriostrada">Arriostrada</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="cantidadPozos">Cantidad de Pozos (PT)</label>
+          <select id="cantidadPozos">
+            <option value="1">1 Pozo (PT01)</option>
+            <option value="2">2 Pozos (PT01 - PT02)</option>
+            <option value="3" selected>3 Pozos (PT01 - PT03)</option>
+            <option value="4">4 Pozos (PT01 - PT04)</option>
+            <option value="5">5 Pozos (PT01 - PT05)</option>
+            <option value="6">6 Pozos (PT01 - PT06)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="val50">Medición 50% - 15 MTS (OHMS)</label>
+          <input type="number" id="val50" step="0.01" min="0" value="2.15" />
+        </div>
+
+        <div class="field">
+          <label for="val60">Medición 60% - 18 MTS (OHMS)</label>
+          <input type="number" id="val60" step="0.01" min="0" value="2.20" />
+        </div>
+
+        <div class="field">
+          <label for="val70">Medición 70% - 21 MTS (OHMS)</label>
+          <input type="number" id="val70" step="0.01" min="0" value="2.28" />
+        </div>
+      </div>
+
+      <div id="avisoSpat" class="notice" hidden></div>
+
+      <div class="actions">
+        <button type="button" id="btnActualizarSpat" class="btn-action btn-secondary">Actualizar Vista</button>
+        <button type="button" id="btnDescargarSpat" class="btn-action btn-primary">Descargar PNG (SPAT)</button>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="canvasSpat" width="900" height="1000"></canvas>
+      </div>
+    </section>
+
+    <section id="tabPerimetro" class="tab-panel" role="tabpanel">
+      <div class="grid-form">
+        <div class="field">
+          <label for="perAncho">Ancho Horizontal (MTS)</label>
+          <input type="number" id="perAncho" step="0.01" min="0.1" value="8.10" />
+        </div>
+
+        <div class="field">
+          <label for="perLargo">Largo Vertical (MTS)</label>
+          <input type="number" id="perLargo" step="0.01" min="0.1" value="10.00" />
+        </div>
+
+        <div class="field">
+          <label for="perTipoTorre">Símbolo de Torre</label>
+          <select id="perTipoTorre">
+            <option value="auto_cuadrado">Autosoportada (Cuadrada)</option>
+            <option value="auto_triangulo">Autosoportada (Triangular)</option>
+            <option value="monopolo">Monopolo / Árbol</option>
+            <option value="ventada">Ventada</option>
+            <option value="arriostrada">Arriostrada</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="coordA">Coordenada A (Sup. Izq.)</label>
+          <input type="text" id="coordA" value="-11.864512, -77.076543" />
+        </div>
+
+        <div class="field">
+          <label for="coordB">Coordenada B (Sup. Der.)</label>
+          <input type="text" id="coordB" value="-11.864510, -77.076470" />
+        </div>
+
+        <div class="field">
+          <label for="coordC">Coordenada C (Inf. Der.)</label>
+          <input type="text" id="coordC" value="-11.864598, -77.076468" />
+        </div>
+
+        <div class="field">
+          <label for="coordD">Coordenada D (Inf. Izq.)</label>
+          <input type="text" id="coordD" value="-11.864600, -77.076541" />
+        </div>
+      </div>
+
+      <div id="avisoPerimetro" class="notice" hidden></div>
+
+      <div class="actions">
+        <button type="button" id="btnActualizarPer" class="btn-action btn-secondary">Actualizar Vista</button>
+        <button type="button" id="btnDescargarPer" class="btn-action btn-primary">Descargar PNG (Perímetro)</button>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="canvasPerimetro" width="960" height="820"></canvas>
+      </div>
+    </section>
+
+    <section id="tabTorre" class="tab-panel" role="tabpanel">
+      <div class="grid-form">
+        <div class="field">
+          <label for="torreTipo">Modelo de Torre (8 tipos)</label>
+          <select id="torreTipo">
+            <option value="arbol">1. Torre público tipo árbol</option>
+            <option value="monopolo">2. Torre monopolo</option>
+            <option value="autosoportada_normal">3. Torre autosoportada (roldana normal)</option>
+            <option value="arriostrada_escalera_gato">4. Torre arriostrada con escalera gato</option>
+            <option value="ventada_edificio">5. Torre ventada con edificio</option>
+            <option value="ventada_piso">6. Torre ventada de piso</option>
+            <option value="autosoportada_encima">7. Torre autosoportada (roldana encima)</option>
+            <option value="arriostrada_edificio_normal">8. Torre arriostrada con edificio normal</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="alturaTorre">Altura Torre + Base / Pedestal (m)</label>
+          <input type="number" id="alturaTorre" step="0.01" min="0.1" value="30.00" />
+        </div>
+
+        <div class="field">
+          <label for="alturaBase">Altura Base / Pedestal (m)</label>
+          <input type="number" id="alturaBase" step="0.01" min="0" value="1.20" />
+        </div>
+
+        <div class="field grp-roldana-std" hidden>
+          <label for="roldanaSup">Altura Roldana Superior (m)</label>
+          <input type="number" id="roldanaSup" step="0.01" min="0" value="28.50" />
+        </div>
+
+        <div class="field grp-roldana-std" hidden>
+          <label for="roldanaInf">Altura Roldana Inferior (m)</label>
+          <input type="number" id="roldanaInf" step="0.01" min="0" value="27.30" />
+        </div>
+
+        <div class="field grp-monopolo" hidden>
+          <label for="rol1Sup">Altura Roldana 1 Superior (m)</label>
+          <input type="number" id="rol1Sup" step="0.01" min="0" value="29.00" />
+        </div>
+        <div class="field grp-monopolo" hidden>
+          <label for="rol1Inf">Altura Roldana 1 Inferior (m)</label>
+          <input type="number" id="rol1Inf" step="0.01" min="0" value="27.80" />
+        </div>
+        <div class="field grp-monopolo" hidden>
+          <label for="rol2Sup">Altura Roldana 2 Superior (m)</label>
+          <input type="number" id="rol2Sup" step="0.01" min="0" value="26.00" />
+        </div>
+        <div class="field grp-monopolo" hidden>
+          <label for="rol2Inf">Altura Roldana 2 Inferior (m)</label>
+          <input type="number" id="rol2Inf" step="0.01" min="0" value="24.80" />
+        </div>
+        <div class="field grp-monopolo" hidden>
+          <label for="rol3Sup">Altura Roldana 3 Superior (m)</label>
+          <input type="number" id="rol3Sup" step="0.01" min="0" value="23.00" />
+        </div>
+        <div class="field grp-monopolo" hidden>
+          <label for="rol3Inf">Altura Roldana 3 Inferior (m)</label>
+          <input type="number" id="rol3Inf" step="0.01" min="0" value="21.80" />
+        </div>
+
+        <div class="field grp-escalera" hidden>
+          <label for="alturaEscaleraGato">Altura Escalera Gato (m)</label>
+          <input type="number" id="alturaEscaleraGato" step="0.01" min="0" value="2.40" />
+        </div>
+
+        <div class="field grp-edificio" hidden>
+          <label for="alturaEdificio">Altura Edificio sin Parapeto (m)</label>
+          <input type="number" id="alturaEdificio" step="0.01" min="0" value="12.00" />
+        </div>
+
+        <div class="field">
+          <label for="customTorreImg">Reemplazar imagen de este modelo (opcional)</label>
+          <input type="file" id="customTorreImg" accept="image/*" />
+        </div>
+      </div>
+
+      <div id="avisoTorre" class="notice" hidden></div>
+
+      <div class="actions">
+        <button type="button" id="btnActualizarTorre" class="btn-action btn-secondary">Actualizar Vista</button>
+        <button type="button" id="btnDescargarTorre" class="btn-action btn-primary">Descargar PNG (Torre)</button>
+      </div>
+
+      <div class="canvas-wrap">
+        <canvas id="canvasTorre" width="900" height="1200"></canvas>
+      </div>
+    </section>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
